@@ -16,9 +16,7 @@ const Pokedex = () => {
             text="<b>Find</b> all your favorite <b>Pokemon</b>
             <p>You can know the type of Pokemon, its strengths, disadvantages and abilities</p>"
           />
-          <Button isFullWidth color="yellow" size="small">
-            See pokemons
-          </Button>
+          <Button>See pokemons</Button>
         </div>
       </Layout>
       <Footer />
