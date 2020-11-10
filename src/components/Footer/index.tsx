@@ -1,7 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
-import MakeImg from './footerImg.svg';
-import TeamImg from './teamImg.svg';
+
+import { ReactComponent as OurTeamSvg } from './assets/teamImg.svg';
+import { ReactComponent as MadeWithSvg } from './assets/footerImg.svg';
 
 import s from './Footer.module.scss';
 
@@ -11,10 +12,10 @@ const Footer = () => {
       <div className="container">
         <nav>
           <div className={cn(s.make)}>
-            <img title="Pokemon Desc" src={MakeImg} alt="Pokemon Desc" />
+            <MadeWithSvg />
           </div>
           <div className={cn(s.team)}>
-            <img title="Pokemon Desc" src={TeamImg} alt="Pokemon Desc" />
+            <OurTeamSvg />
           </div>
         </nav>
       </div>

@@ -43,15 +43,24 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jp(e*)g|svg|gif)$/,
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: 'images/[hash]-[name].[ext]',
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
             },
           },
         ],
+      },
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: ['url-loader'],
       },
     ],
   },
@@ -64,6 +73,7 @@ module.exports = {
     port: 3000,
     open: true,
     hot: true,
+    historyApiFallback: true,
   },
   devtool: 'source-map',
 };

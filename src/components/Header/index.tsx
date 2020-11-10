@@ -1,26 +1,55 @@
 import React from 'react';
-import cn from 'classnames';
-import Logo from './Logo.svg';
+import { Link } from 'react-router-dom';
 
 import s from './Header.module.scss';
 
+import { ReactComponent as PokemonLogoSvg } from './assets/Logo.svg';
+
+interface IMenu {
+  id: number;
+  value: string;
+  link: string;
+}
+
+const Menu: IMenu[] = [
+  {
+    id: 1,
+    value: 'Home',
+    link: '/',
+  },
+  {
+    id: 2,
+    value: 'Pokedex',
+    link: '/pokedex',
+  },
+  {
+    id: 3,
+    value: 'Legendaries',
+    link: '#',
+  },
+  {
+    id: 4,
+    value: 'Documentation',
+    link: '#',
+  },
+];
+
 const Header = () => {
   return (
-    <header>
-      <div className="container">
-        <nav>
-          <div className={cn(s.logo)}>
-            <img title="Pokemon Desc" src={Logo} alt="Pokemon Desc" />
-          </div>
-          <ul className={cn(s.links)}>
-            <li className={cn(s.active)}>Home</li>
-            <li>Pokédex</li>
-            <li>Legendaries</li>
-            <li>Documentation</li>
-          </ul>
-        </nav>
+    <div className={s.root}>
+      <div className={s.wrap}>
+        <div className={s.pokemonLogo}>
+          <PokemonLogoSvg />
+        </div>
+        <div className={s.menuWrap}>
+          {Menu.map(({ value, link, id }) => (
+            <Link key={id} to={link} className={s.menuLink}>
+              {value}
+            </Link>
+          ))}
+        </div>
       </div>
-    </header>
+    </div>
   );
 };
 
