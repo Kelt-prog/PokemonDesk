@@ -3,30 +3,38 @@ import Heading from '../Heading';
 
 import s from './PokemonCard.module.scss';
 
-const PokemonCard = () => {
+interface IPokemonCardProps {
+  name: string;
+  stats: {
+    [key: string]: number;
+  };
+  types: string[];
+  img: string;
+}
+
+const PokemonCard: React.FC<IPokemonCardProps> = ({ name, stats, types, img }) => {
   return (
     <div className={s.root}>
       <div className={s.infoWrap}>
-        <Heading headingLevel="h6" text="Charmander" className={s.titleName} />
+        <Heading headingLevel="h6" text={name} className={s.titleName} />
         <div className={s.statWrap}>
           <div className={s.statItem}>
-            <div className={s.statValue}>52</div>
+            <div className={s.statValue}>{stats.attack}</div>
             Attack
           </div>
           <div className={s.statItem}>
-            <div className={s.statValue}>43</div>
+            <div className={s.statValue}>{stats.defense}</div>
             Defense
           </div>
         </div>
-        <div className={s.labelWrap}>
-          <span className={s.label}>Fire</span>
-        </div>
+        {types.map((type) => (
+          <div key={type} className={s.labelWrap}>
+            <span className={s.label}>{type}</span>
+          </div>
+        ))}
       </div>
       <div className={s.pictureWrap}>
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-          alt="Charmander"
-        />
+        <img src={img} alt={name} />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-interface IPokemon {
+export interface IPokemon {
   nameClean: string;
   abilities: string[];
   stats: {
