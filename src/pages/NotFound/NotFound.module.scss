@@ -1,0 +1,22 @@
+@import '../../variables';
+
+.root {
+  background: $danger;
+  height: 100%;
+
+  .wrap {
+    display: inline;
+  }
+
+  .text {
+    display: inline;
+  }
+
+  .layer {
+    display: inline;
+  }
+
+  .subTitle {
+    display: inline;
+  }
+}
