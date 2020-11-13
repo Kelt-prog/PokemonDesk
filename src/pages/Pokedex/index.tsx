@@ -1,9 +1,13 @@
 import React from 'react';
 import Header from '../../components/Header';
 import Layout from '../../components/Layout';
+import PokemonCard from '../../components/PokemonCard';
 import Heading from '../../components/Heading';
 import Footer from '../../components/Footer';
-import Button from '../../components/Button';
+
+import pokemons from './pokemonArray';
+
+import s from './Pokedex.module.scss';
 
 const Pokedex = () => {
   return (
@@ -11,12 +15,18 @@ const Pokedex = () => {
       <Header />
       <Layout>
         <div>
-          <Heading
-            headingLevel="h2"
-            text="<b>Find</b> all your favorite <b>Pokemon</b>
-            <p>You can know the type of Pokemon, its strengths, disadvantages and abilities</p>"
-          />
-          <Button>See pokemons</Button>
+          <Heading headingLevel="h2" text="pokedex" />
+          <div className={s.root}>
+            {pokemons.map((pokemon) => (
+              <PokemonCard
+                key={pokemon.nameClean}
+                name={pokemon.nameClean}
+                stats={pokemon.stats}
+                img={pokemon.img}
+                types={pokemon.types}
+              />
+            ))}
+          </div>
         </div>
       </Layout>
       <Footer />
