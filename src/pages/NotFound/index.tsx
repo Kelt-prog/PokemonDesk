@@ -3,6 +3,7 @@ import { navigate } from 'hookrouter';
 import Button from '../../components/Button';
 import TeamRocket from './assets/TeamRocket.png';
 import s from './NotFound.module.scss';
+import { LinkEnum } from '../../routes';
 
 const EmptyPage = () => {
   return (
@@ -14,7 +15,7 @@ const EmptyPage = () => {
           <div className={s.subTitle}>
             <span>The rocket team</span> has won this game.
           </div>
-          <Button onClick={() => navigate('/')}>Go back</Button>
+          <Button onClick={() => navigate(LinkEnum.POKEDEX)}>Go back</Button>
         </div>
         <div>Page not found</div>
       </div>
