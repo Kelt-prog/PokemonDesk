@@ -1,9 +1,10 @@
 import React from 'react';
 import { A, usePath } from 'hookrouter';
 import cn from 'classnames';
-import { GENERAL_MENU } from '../../routes';
 import s from './Header.module.scss';
 
+import Layout from '../Layout/index';
+import { GENERAL_MENU } from '../../routes';
 import { ReactComponent as PokemonLogoSvg } from './assets/Logo.svg';
 
 const Header = () => {
@@ -11,20 +12,22 @@ const Header = () => {
 
   return (
     <div className={s.root}>
-      <div className={s.wrap}>
-        <div className={s.pokemonLogo}>
-          <PokemonLogoSvg />
+      <Layout>
+        <div className={s.wrap}>
+          <div className={s.pokemonLogo}>
+            <PokemonLogoSvg />
+          </div>
+          <div className={s.menuWrap}>
+            {GENERAL_MENU.map(({ title, link }) => (
+              <A key={title} href={link} className={cn(s.menuLink, { [s.activeLink]: link === path })}>
+                {title}
+              </A>
+            ))}
+          </div>
         </div>
-        <div className={s.menuWrap}>
-          {GENERAL_MENU.map(({ title, link }) => (
-            <A key={title} href={link} className={cn(s.menuLink, { [s.activeLink]: link === path })}>
-              {title}
-            </A>
-          ))}
-        </div>
-      </div>
+      </Layout>
     </div>
   );
 };
 
-export default Header;
+export default React.memo(Header);

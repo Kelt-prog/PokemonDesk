@@ -5,8 +5,9 @@
   background: linear-gradient(180deg, $third 0%, $primary 100%);
 }
 .contentWrap {
-  background: transparent;
+  display: flex;
+  align-items: center;
 }
 .contentText {
-  background: transparent;
+  flex: 1;
 }
