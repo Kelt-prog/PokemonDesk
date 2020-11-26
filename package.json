@@ -5,7 +5,8 @@
   "scripts": {
     "build:dev": "env NODE_ENV=development webpack --config webpack.config",
     "build:prod": "env NODE_ENV=production webpack --config webpack.config",
-    "start": "env NODE_ENV=development webpack-dev-server"
+    "start": "env NODE_ENV=development webpack-dev-server",
+    "test": "jest"
   },
   "repository": "https://github.com/Kelt-prog/PokemonDesk.git",
   "author": "Dmitry Mordvintsev <d.mordvincev@systtech.ru>",
@@ -20,6 +21,8 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.7",
     "@svgr/webpack": "^5.4.0",
     "@types/classnames": "^2.2.11",
     "@types/hookrouter": "^2.2.3",
@@ -56,7 +59,7 @@
     "style-loader": "^2.0.0",
     "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.7",
-    "typescript": "^4.0.5",
+    "typescript": "^4.1.2",
     "typescript-plugin-css-modules": "^2.8.0",
     "url-loader": "^4.1.1",
     "webpack": "4.44.2",
